@@ -5,14 +5,19 @@ A collection of PowerShell automation scripts built to simulate real sysadmin wo
 <br />
 
 
-<h2>Languages and Utilities Used</h2>
+<h2>Utilities Used</h2>
 
 - <b>PowerShell</b> 
-- <b></b>
+- <b>Active Directory PowerShell Module (Get-ADUser)</b>
+- <b>Get-CimInstance (hardware and OS data collection)</b>
+- <b>Get-PSDrive (disk enumeration)</b>
+- <b>Export-Csv (structured data output)</b>
+- <b>Tee-Object (simultaneous console and file output)</b>
 
 <h2>Environments Used </h2>
 
 - <b>Windows Server 2022</b>
+- <b>Microsoft Hyper-V — AD-Lab-Internal isolated virtual switch (carried over from Lab 1)</b>
 
 <h2>Program walk-through:</h2>
 
