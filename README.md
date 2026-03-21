@@ -1,48 +1,48 @@
 <h1>PowerShell Scripting Lab</h1>
 
 <h2>Description</h2>
-Project consists of a simple PowerShell script that walks the user through "zeroing out" (wiping) any drives that are connected to the system. The utility allows you to select the target disk and choose the number of passes that are performed. The PowerShell script will configure a diskpart script file based on the user's selections and then launch Diskpart to perform the disk sanitization.
+A collection of PowerShell automation scripts built to simulate real sysadmin workflows including disk space monitoring, system inventory reporting, and Active Directory account auditing. Each script is self-contained, exports results to a structured output file, and is written with inline comments for readability and maintainability. These scripts reflect the shift from manual administration to repeatable, auditable automation.
 <br />
 
 
 <h2>Languages and Utilities Used</h2>
 
 - <b>PowerShell</b> 
-- <b>Diskpart</b>
+- <b></b>
 
 <h2>Environments Used </h2>
 
-- <b>Windows 10</b> (21H2)
+- <b>Windows Server 2022</b>
 
 <h2>Program walk-through:</h2>
 
 <p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+1. Get-DiskSpaceReport.ps1 open in VS Code alongside the PowerShell console output displaying all local drives with total, used, and free GB values and a status column flagging any drive below the defined 20GB threshold. <br/>
+<img src="https://github.com/user-attachments/assets/e8d19c48-3156-4165-91dc-355f84ae7746" height="80%" width="80%" alt="DiskSpaceReport.ps1"/>
 <br />
 <br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+2. DiskReport.csv showing the structured output with all drive data captured in a format suitable for logging or ongoing monitoring. <br/>
+<img src="https://github.com/user-attachments/assets/79e1a066-84c5-4a19-8c2a-409a49dcf626" height="80%" width="80%" alt="DiskReport.csv"/>
 <br />
 <br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+3. Get-SystemReport.ps1 open showing the modular section functions used to collect OS details, hardware specs, network adapter info, disk summary, and installed software.  <br/>
+<img src="https://github.com/user-attachments/assets/1edd89fc-9410-42d7-9e91-554f85acb76a" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+4. Full system report printed to the PowerShell console with all sections populated with live machine data pulled from DC01.  <br/>
+<img src="https://github.com/user-attachments/assets/319775d1-d427-49bc-b955-d4fa00e52bac" height="80%" width="80%" alt="SysemReport.ps1 Output"/>
 <br />
 <br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+5. SystemReport.txt open showing the formatted, section-divided report in a state ready to be filed, archived, or shared with a team.  <br/>
+<img src="https://github.com/user-attachments/assets/be9bd4bd-c363-4d52-97d2-7175a3ffa61e" height="80%" width="80%" alt="SystemReport.txt"/>
 <br />
 <br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+6. Get-StaleAccounts.ps1 open in VS Code alongside the PowerShell console output displaying all flagged inactive accounts with their last logon date and calculated days inactive, queried directly from Active Directory.  <br/>
+<img src="https://github.com/user-attachments/assets/be9bd4bd-c363-4d52-97d2-7175a3ffa61e" height="80%" width="80%" alt="SystemReport.txt"/>
 <br />
 <br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+7. StaleAccounts.csv showing the full audit results in a structured format reflecting the kind of output that would be reviewed during a security or compliance audit.  <br/>
+<img src="https://github.com/user-attachments/assets/fe72c918-54d3-4c46-bc9b-5faf0938010c" height="80%" width="80%" alt="StaleAccounts.csv"/>
 </p>
 
 <!--
