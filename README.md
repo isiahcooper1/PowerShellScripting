@@ -1,52 +1,53 @@
 <h1>PowerShell Scripting Lab</h1>
 
 <h2>Description</h2>
-A collection of PowerShell automation scripts built to simulate real sysadmin workflows including disk space monitoring, system inventory reporting, and Active Directory account auditing. Each script is self-contained, exports results to a structured output file, and is written with inline comments for readability and maintainability. These scripts reflect the shift from manual administration to repeatable, auditable automation.
+This project documents the development and execution of a production-ready PowerShell automation script designed to handle the secure offboarding of a departing employee. The script takes an active user identity and automates an immediate multi-step lockdown: disabling the account, randomizing the password, stripping all security groups, migrating the object to a restricted Organizational Unit (OU), and creating a compressed archive of their local profile data. Every action is outputted to a centralized compliance audit log.This lab demonstrates foundational system administration capabilities in scripting logic, enterprise security enforcement, lifecycle management, and administrative change-auditing.
 <br />
 
 
 <h2>Utilities Used</h2>
 
-- <b>PowerShell</b> 
-- <b>Active Directory PowerShell Module (Get-ADUser)</b>
-- <b>Get-CimInstance (hardware and OS data collection)</b>
-- <b>Get-PSDrive (disk enumeration)</b>
-- <b>Export-Csv (structured data output)</b>
-- <b>Tee-Object (simultaneous console and file output)</b>
+- <b>Windows PowerShell (Active Directory Module)</b> 
+- <b>Active Directory Users and Computers</b>
+- <b>File system Cmdlets (Compress-Archive, Out-File)</b>
 
 <h2>Environments Used </h2>
 
 - <b>Windows Server 2022</b>
-- <b>Microsoft Hyper-V — AD-Lab-Internal isolated virtual switch (carried over from Lab 1)</b>
+- <b>Active Directory Domain: corp.local</b>
 
 <h2>Program walk-through:</h2>
 
 <p align="center">
-1. Get-DiskSpaceReport.ps1 open in VS Code alongside the PowerShell console output displaying all local drives with total, used, and free GB values and a status column flagging any drive below the defined 20GB threshold. <br/>
+1. Created the folder paths where the script, the archive files, and the compliance log trail will live. Created folders named "C:\AD-Cleanup" and "C:\OffboardingArchive". <br/>
 <img src="https://github.com/user-attachments/assets/e8d19c48-3156-4165-91dc-355f84ae7746" height="80%" width="80%" alt="DiskSpaceReport.ps1"/>
 <br />
 <br />
-2. DiskReport.csv showing the structured output with all drive data captured in a format suitable for logging or ongoing monitoring. <br/>
+2. Created new user to use as a test subject. Created user "Test Employee", and added them as a member of two security groups. <br/>
 <img src="https://github.com/user-attachments/assets/79e1a066-84c5-4a19-8c2a-409a49dcf626" height="80%" width="80%" alt="DiskReport.csv"/>
 <br />
 <br />
-3. Get-SystemReport.ps1 open showing the modular section functions used to collect OS details, hardware specs, network adapter info, disk summary, and installed software.  <br/>
+3. In order to safely isolate offboarded accounts without deleting them immediately, I created a dedicated landing spot at the root of the domain. Created the following new OU: Stale Objects.  <br/>
 <img src="https://github.com/user-attachments/assets/1edd89fc-9410-42d7-9e91-554f85acb76a" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-4. Full system report printed to the PowerShell console with all sections populated with live machine data pulled from DC01.  <br/>
+4. To prove the script can handle data lifecycle management. I simulated a user profile directory that needs to be backed up before the workstation gets wiped. Created the following folder: C:\Users\temployee. Inside it, I created two text files. <br/>
 <img src="https://github.com/user-attachments/assets/319775d1-d427-49bc-b955-d4fa00e52bac" height="80%" width="80%" alt="SysemReport.ps1 Output"/>
 <br />
 <br />
-5. SystemReport.txt open showing the formatted, section-divided report in a state ready to be filed, archived, or shared with a team.  <br/>
+5. Opened PowerShell ISE and wrote the following script into a new file saved as "C:\AD-Cleanup\Invoke-UserOffboarding.ps1".  <br/>
 <img src="https://github.com/user-attachments/assets/be9bd4bd-c363-4d52-97d2-7175a3ffa61e" height="80%" width="80%" alt="SystemReport.txt"/>
 <br />
 <br />
-6. Get-StaleAccounts.ps1 open in VS Code alongside the PowerShell console output displaying all flagged inactive accounts with their last logon date and calculated days inactive, queried directly from Active Directory.  <br/>
+6. Changed the directory to the cleanup folder and ran the script, targeting the test account.  <br/>
 <img src="https://github.com/user-attachments/assets/be9bd4bd-c363-4d52-97d2-7175a3ffa61e" height="80%" width="80%" alt="SystemReport.txt"/>
 <br />
 <br />
-7. StaleAccounts.csv showing the full audit results in a structured format reflecting the kind of output that would be reviewed during a security or compliance audit.  <br/>
+7. Opened Active Directory Users and Computers to confirm the script worked.  <br/>
+<img src="https://github.com/user-attachments/assets/fe72c918-54d3-4c46-bc9b-5faf0938010c" height="80%" width="80%" alt="StaleAccounts.csv"/>
+<br />
+<br />
+8. Opened the OffboardingArchive folder to confirm there is a compressed file named "temployee_Profile_Archive.zip". finally, I opened the Offboarding_Compliance_Log.txt file to confirm the logs are tracked. <br/>
 <img src="https://github.com/user-attachments/assets/fe72c918-54d3-4c46-bc9b-5faf0938010c" height="80%" width="80%" alt="StaleAccounts.csv"/>
 </p>
 
