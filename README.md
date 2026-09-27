@@ -39,15 +39,15 @@ This project documents the development and execution of a production-ready Power
 <img src="https://github.com/user-attachments/assets/be9bd4bd-c363-4d52-97d2-7175a3ffa61e" height="80%" width="80%" alt="SystemReport.txt"/>
 <br />
 <br />
-6. Changed the directory to the cleanup folder and ran the script, targeting the test account.  <br/>
+6. Opened PowerShell, changed the directory to the cleanup folder and ran the script, targeting the test account.  <br/>
 <img src="https://github.com/user-attachments/assets/be9bd4bd-c363-4d52-97d2-7175a3ffa61e" height="80%" width="80%" alt="SystemReport.txt"/>
 <br />
 <br />
-7. Opened Active Directory Users and Computers to confirm the script worked.  <br/>
+7. Opened Active Directory Users and Computers to confirm the script worked, and the user account is disabled and was moved to the Stale Objects OU.  <br/>
 <img src="https://github.com/user-attachments/assets/fe72c918-54d3-4c46-bc9b-5faf0938010c" height="80%" width="80%" alt="StaleAccounts.csv"/>
 <br />
 <br />
-8. Opened the OffboardingArchive folder to confirm there is a compressed file named "temployee_Profile_Archive.zip". finally, I opened the Offboarding_Compliance_Log.txt file to confirm the logs are tracked. <br/>
+8. Opened the OffboardingArchive folder to confirm there is a compressed file named "temployee_Profile_Archive.zip". Finally, I opened the Offboarding_Compliance_Log.txt file to confirm the logs are tracked. <br/>
 <img src="https://github.com/user-attachments/assets/fe72c918-54d3-4c46-bc9b-5faf0938010c" height="80%" width="80%" alt="StaleAccounts.csv"/>
 </p>
 
