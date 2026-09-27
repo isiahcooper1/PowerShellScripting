@@ -47,7 +47,7 @@ This project documents the development and execution of a production-ready Power
 <img src="https://github.com/user-attachments/assets/9c90eeb9-b4f6-456f-9927-0c94355d429f" height="80%" width="80%" alt="StaleAccounts.csv"/>
 <br />
 <br />
-8. Opened the OffboardingArchive folder to confirm there is a compressed file named "temployee_Profile_Archive.zip". Finally, I opened the Offboarding_Compliance_Log.txt file to confirm the logs are tracked. <br/>
+8. Opened the OffboardingArchive folder to confirm there is a compressed file named "temployee_Profile_Archive.zip". Finally, I opened the Offboarding_Compliance_Log.txt file to confirm the flat-file logs match the runtime output. <br/>
 <img src="https://github.com/user-attachments/assets/bfb5ede8-397b-438f-902f-b4f3577e70d0" height="80%" width="80%" alt="StaleAccounts.csv"/>
 <br />
 <img src="https://github.com/user-attachments/assets/9b1c9eac-b619-4958-8f6b-9aa93f49a4f9" height="80%" width="80%" alt="StaleAccounts.csv"/>
