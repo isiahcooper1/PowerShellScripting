@@ -28,7 +28,7 @@ This project documents the development and execution of a production-ready Power
 <br />
 <br />
 3. In order to safely isolate offboarded accounts without deleting them immediately, I created a dedicated landing spot at the root of the domain. Created the following new OU: Stale Objects.  <br/>
-<img src=https://github.com/user-attachments/assets/a138c0b1-7b83-46b5-b61a-59237fa0ff4e" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/user-attachments/assets/a138c0b1-7b83-46b5-b61a-59237fa0ff4e" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 4. To prove the script can handle data lifecycle management. I simulated a user profile directory that needs to be backed up before the workstation gets wiped. Created the following folder: C:\Users\temployee. Inside it, I created two text files. <br/>
